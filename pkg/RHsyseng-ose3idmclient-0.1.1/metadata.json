@@ -1,0 +1,13 @@
+{
+  "name": "RHsyseng-ose3idmclient",
+  "version": "0.1.1",
+  "author": "RHsyseng",
+  "summary": "IdM management for OSE3 hosts",
+  "license": "LGPL-3.0",
+  "source": "https://github.com/RHsyseng/ose3idmclient-puppet-module",
+  "project_page": "https://github.com/RHsyseng/ose3idmclient-puppet-module",
+  "issues_url": "https://github.com/RHsyseng/ose3idmclient-puppet-module/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.8.0"}
+  ]
+}
