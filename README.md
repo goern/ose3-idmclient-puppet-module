@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ose3idmclient
 
 #### Table of Contents
@@ -78,7 +77,3 @@ know what the ground rules for contributing are.
 If you aren't using changelog, put your release notes here (though you should
 consider using changelog). You may also add any additional sections you feel are
 necessary or important to include here. Please use the `## ` header.
-=======
-# ose3-idmclient-puppet-module
-Some support for OSE3 and IdM integration
->>>>>>> 391175459fd6c717aa41d59635ca2648dbc1a06c
