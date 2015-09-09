@@ -25,7 +25,7 @@
 class ose3idmclient(
   $ipa_domain = $ose3idmclient::params::ipa_domain,
   $ipa_server = $ose3idmclient::params::ipa_server
-) inherit ose3idmclient::params {
+) inherits ose3idmclient::params {
   $ipa_realm = upcase($ipa_domain)
 
   notify {"DEBUG: IPA ${ipa_domain}/${ipa_realm} on server ${ipa_server}":}
