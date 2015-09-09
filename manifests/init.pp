@@ -12,9 +12,7 @@
 #
 # === Examples
 #
-#  class { 'ose3idmclient':
-#    servers => [ 'node-1.ose3.example.com', 'node-2.ose3.example.com' ],
-#  }
+# None.
 #
 # === Authors
 #
@@ -24,10 +22,17 @@
 #
 # Copyright 2015 Red Hat GmbH
 #
-class ose3idmclient {
+class ose3idmclient(
+  $ipa_domain = $ose3idmclient::params::ipa_domain,
+  $ipa_server = $ose3idmclient::params::ipa_server
+) inherit ose3idmclient::params {
+  $ipa_realm = upcase($ipa_domain)
+
+  notify {"DEBUG: IPA ${ipa_domain}/${ipa_realm} on server ${ipa_server}":}
+
   package { "ipa-client": ensure => 'present' }
 
-  exec { "/usr/sbin/ipa-client-install  --server=acme-idm-srv-1.syseng.bos.redhat.com --domain=acme.example.com --nisdomain=acme.example.com --realm=ACME.EXAMPLE.COM --enable-dns-updates --mkhomedir -w secret --unattended":
+  exec { "/usr/sbin/ipa-client-install  --server=${ipa_server} --domain=${ipa_domain} --nisdomain=${ipa_domain} --realm=${ipa_realm} --enable-dns-updates --mkhomedir -w secret --unattended":
     require => [ Package["ipa-client"] ],
     unless => "/usr/bin/grep 'ipa_domain = acme.example.com' /etc/sssd/sssd.conf"
   }
